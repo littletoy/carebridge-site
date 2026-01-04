@@ -1,19 +1,16 @@
 ---
-import { Picture } from "astro:assets";
-import heroImage from "@assets/hero.jpg";
 import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
   <div class="py-6 md:order-1 md:block">
-    <Picture
-      src={heroImage}
+    <img
+      src="/hero.jpg"
       alt="Doctor performing surgery"
-      widths={[200, 400, 600]}
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
+      class="rounded-lg shadow-xl w-full h-auto"
+      width="600"
+      height="400"
     />
   </div>
   <div>
