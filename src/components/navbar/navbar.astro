@@ -1,0 +1,70 @@
+---
+import Container from "../container.astro";
+import Link from "../ui/link.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const menuitems = [
+  {
+    title: "Hair Transplant",
+    path: "#",
+  },
+  {
+    title: "Dental",
+    path: "#",
+  },
+  {
+    title: "Cosmetic",
+    path: "#",
+  },
+  {
+    title: "About Us",
+    path: "#",
+  },
+];
+---
+
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="flex items-center gap-2 group">
+          <img 
+            src="/logo.png" 
+            alt="CareBridge Logo" 
+            class="h-10 w-auto" 
+          />
+          <span class="text-xl font-bold text-slate-800">CareBridge</span>
+        </a>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-4 h-4 text-gray-800" />
+        </div>
+      </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item) => (
+              <li>
+                <a
+                  href={item.path}
+                  class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-blue-600 font-medium"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="lg:hidden flex items-center mt-3 gap-4">
+          <Link href="https://wa.me/919876543210" style="primary" block size="md">
+            WhatsApp Us
+          </Link>
+        </div>
+      </MenuItems>
+    </Astronav>
+    <div class="hidden lg:flex items-center gap-4">
+      <a href="https://wa.me/919876543210" class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-4 py-2 bg-blue-600 text-white hover:bg-blue-700 border-2 border-transparent font-medium">
+        Chat on WhatsApp
+      </a>
+    </div>
+  </header>
+</Container>
