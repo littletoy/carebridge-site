@@ -4,7 +4,8 @@ import { Icon } from "astro-icon/components";
 ---
 
 <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 md:block">
+  <!-- Image second on mobile, first on desktop -->
+  <div class="py-6 order-2 md:order-1">
     <img
       src="/doctor-india.jpg"
       alt="Doctor performing surgery"
@@ -13,7 +14,9 @@ import { Icon } from "astro-icon/components";
       height="400"
     />
   </div>
-  <div>
+
+  <!-- Text first on mobile, second on desktop -->
+  <div class="order-1 md:order-2">
     <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
       Expert Hair Transplants & Surgeries in India
     </h1>
@@ -31,4 +34,4 @@ import { Icon } from "astro-icon/components";
       </Link>
     </div>
   </div>
-</main> 
+</main>
