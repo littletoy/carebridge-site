@@ -1,29 +1,36 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="CareBridge Health - Medical Tourism India">
   <main class="container mx-auto px-5">
     <div class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+      {/* HERO IMAGE */}
       <div class="py-6 md:order-1 hidden md:block">
         <img
-          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=800"
-          alt="Doctor Consultation"
+          src="/doctor-india.jpg"
+          alt="Doctor performing hair transplant in India"
           class="rounded-xl shadow-lg transition hover:scale-105 duration-500"
           loading="eager"
         />
       </div>
+
+      {/* HERO TEXT */}
       <div>
-        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-slate-900">
+        <h1
+          class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter text-slate-900"
+        >
           Expert Hair Transplants & Surgeries in India
         </h1>
         <p class="text-lg mt-4 text-slate-600 max-w-xl">
-          CareBridge Health connects international patients with India's top JCI-accredited hospitals. Save up to 70% on premium medical treatments.
+          CareBridge Health connects international patients with India's top
+          JCI-accredited hospitals. Save up to 70% on premium medical treatments.
         </p>
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
           <a
             href="https://wa.me/919080553616"
             target="_blank"
+            rel="noopener"
             class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-3 bg-blue-600 text-white border-2 border-transparent hover:bg-blue-700 flex gap-2 items-center justify-center font-medium"
           >
             <span>Get Free Quote via WhatsApp</span>
@@ -31,7 +38,8 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
     </div>
-    
+
+    {/* 3 BENEFIT CARDS */}
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-16">
       <div class="flex gap-4 items-start">
         <div class="mt-1 bg-blue-100 rounded-full p-2 w-8 h-8 shrink-0">
@@ -39,25 +47,34 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div>
           <h3 class="font-semibold text-lg">JCI Accredited</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">We only partner with top-tier hospitals certified for international safety standards.</p>
+          <p class="text-slate-500 mt-2 leading-relaxed">
+            We only partner with top-tier hospitals certified for international
+            safety standards.
+          </p>
         </div>
       </div>
+
       <div class="flex gap-4 items-start">
         <div class="mt-1 bg-blue-100 rounded-full p-2 w-8 h-8 shrink-0">
           $
         </div>
         <div>
           <h3 class="font-semibold text-lg">Save 70% Cost</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">Premium quality treatments at a fraction of US/UK/Dubai prices.</p>
+          <p class="text-slate-500 mt-2 leading-relaxed">
+            Premium quality treatments at a fraction of US/UK/Dubai prices.
+          </p>
         </div>
       </div>
+
       <div class="flex gap-4 items-start">
         <div class="mt-1 bg-blue-100 rounded-full p-2 w-8 h-8 shrink-0">
           ✈️
         </div>
         <div>
           <h3 class="font-semibold text-lg">Full Coordination</h3>
-          <p class="text-slate-500 mt-2 leading-relaxed">From airport pickup to post-op care, we handle your entire journey.</p>
+          <p class="text-slate-500 mt-2 leading-relaxed">
+            From airport pickup to post-op care, we handle your entire journey.
+          </p>
         </div>
       </div>
     </div>
