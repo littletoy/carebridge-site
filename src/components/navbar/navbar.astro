@@ -1,43 +1,107 @@
 ---
-/* No imports needed */
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/hair-transplant", label: "Hair Transplant" },
+  { href: "/dental", label: "Dental" },
+  { href: "/cosmetic", label: "Cosmetic" },
+  { href: "/about", label: "About Us" },
+  { href: "/contact", label: "Contact" },
+];
+
+const pathname = Astro.url.pathname;
+
+const isActive = (href: string) => {
+  if (href === "/") return pathname === "/";
+  return pathname.startsWith(href);
+};
 ---
 
-<header class="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
-  <nav class="container mx-auto flex items-center justify-between gap-4 px-4 py-3">
+<header class="border-b border-slate-100 bg-white/80 backdrop-blur-sm">
+  <!-- Mobile menu toggle (peer) -->
+  <input id="nav-toggle" type="checkbox" class="hidden peer" />
+
+  <!-- Top bar -->
+  <div class="container mx-auto flex items-center justify-between px-5 py-3">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 shrink-0">
+    <a href="/" class="flex items-center gap-2">
       <img
         src="/logo.png"
         alt="CareBridge Health logo"
         class="h-8 w-auto"
         loading="lazy"
       />
-      <span class="font-semibold text-lg tracking-tight">
+      <span class="text-lg font-semibold text-slate-900">
         CareBridge
       </span>
     </a>
 
-    <!-- Links + WhatsApp -->
-    <div class="flex items-center gap-4">
-      <!-- NAV LINKS: visible on ALL screen sizes -->
-      <div
-        class="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate-700 md:gap-6 md:text-base"
-      >
-        <a href="/" class="hover:text-blue-600">Home</a>
-        <a href="/hair-transplant" class="hover:text-blue-600">
-          Hair Transplant
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
+      {navLinks.map((item) => (
+        <a
+          href={item.href}
+          class={
+            "transition hover:text-slate-900 " +
+            (isActive(item.href)
+              ? "text-slate-900 font-semibold"
+              : "text-slate-600")
+          }
+        >
+          {item.label}
         </a>
-        <a href="/dental" class="hover:text-blue-600">Dental</a>
-        <a href="/cosmetic" class="hover:text-blue-600">Cosmetic</a>
-        <a href="/about" class="hover:text-blue-600">About Us</a>
-      </div>
+      ))}
+    </nav>
 
-      <!-- WhatsApp button (hide only on very small screens if it feels cramped) -->
+    <!-- Desktop CTA -->
+    <div class="hidden md:block">
       <a
         href="https://wa.me/919080553616"
         target="_blank"
         rel="noopener"
-        class="hidden sm:inline-flex rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+        class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+      >
+        Chat on WhatsApp
+      </a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <label
+      for="nav-toggle"
+      class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 md:hidden"
+      aria-label="Toggle navigation"
+    >
+      <div class="space-y-1.5">
+        <span class="block h-0.5 w-4 bg-slate-800"></span>
+        <span class="block h-0.5 w-4 bg-slate-800"></span>
+        <span class="block h-0.5 w-4 bg-slate-800"></span>
+      </div>
+    </label>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav
+    class="hidden border-t border-slate-100 bg-white px-5 pb-4 pt-2 text-sm font-medium text-slate-700 peer-checked:block md:hidden"
+  >
+    <div class="flex flex-col gap-2">
+      {navLinks.map((item) => (
+        <a
+          href={item.href}
+          class={
+            "rounded-md px-1 py-1.5 transition " +
+            (isActive(item.href)
+              ? "bg-slate-100 text-slate-900 font-semibold"
+              : "text-slate-700 hover:bg-slate-50")
+          }
+        >
+          {item.label}
+        </a>
+      ))}
+
+      <a
+        href="https://wa.me/919080553616"
+        target="_blank"
+        rel="noopener"
+        class="mt-2 inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
       >
         Chat on WhatsApp
       </a>

@@ -1,44 +1,151 @@
 ---
-import Contactform from "@/components/contactform.astro";
-import Container from "@/components/container.astro";
-import Sectionhead from "@/components/sectionhead.astro";
-import Layout from "@/layouts/Layout.astro";
-import { Icon } from "astro-icon/components";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Contact">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">Contact</Fragment>
-      <Fragment slot="desc">We are a here to help.</Fragment>
-    </Sectionhead>
+<Layout
+  title="Contact CareBridge Health | Get a Free Treatment Estimate"
+  description="Contact CareBridge Health to get a free estimate for hair transplant, dental or cosmetic surgery in India. Share your case details and our team will respond with options and pricing."
+>
+  <main class="container mx-auto px-5 py-12 max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+      Contact CareBridge Health
+    </h1>
 
-    <div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
-      <div>
-        <h2 class="font-medium text-2xl text-gray-800">Contact Astroship</h2>
-        <p class="text-lg leading-relaxed text-slate-500 mt-3">
-          Have something to say? We are here to help. Fill up the form or send
-          email or call phone.
-        </p>
-        <div class="mt-5">
-          <div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:map-marker" />
-            <span>1734 Sanfransico, CA 93063</span>
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:envelope" /><a
-              href="mailto:hello@astroshipstarter.com"
-              >hello@astroshipstarter.com</a
-            >
-          </div><div class="flex items-center mt-2 space-x-2 text-gray-600">
-            <Icon class="text-gray-400 w-4 h-4" name="uil:phone" /><a
-              href="tel:+1 (987) 4587 899">+1 (987) 4587 899</a
-            >
+    <p class="text-lg text-slate-600 mb-8">
+      Share a few details about your case and what treatment you’re interested in.
+      Our team will review it with our partner hospitals and get back with
+      options, estimated costs and next steps.
+    </p>
+
+    <!-- WhatsApp quick CTA -->
+    <section class="mb-10 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4">
+      <p class="text-slate-800 mb-2 font-semibold">
+        Prefer WhatsApp?
+      </p>
+      <p class="text-slate-700 mb-4">
+        You can send reports, photos and questions directly to us:
+      </p>
+      <a
+        href="https://wa.me/919080553616"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center justify-center rounded-md bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700"
+      >
+        Chat on WhatsApp (+91 90805 53616)
+      </a>
+    </section>
+
+    <!-- Contact form -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Get a Free Treatment Estimate</h2>
+
+      {/*
+        NOTE:
+        - For now the form does nothing on submit.
+        - To actually receive submissions, hook this to Formspree, a simple backend,
+          or a Cloudflare Worker and update the "action" + "method" accordingly.
+      */}
+      <form
+        class="space-y-5"
+        method="POST"
+        action="#"
+      >
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">
+              Full Name
+            </label>
+            <input
+              name="name"
+              type="text"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Your full name"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">
+              Country / City
+            </label>
+            <input
+              name="country"
+              type="text"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="E.g. Dubai, UAE"
+            />
           </div>
         </div>
-      </div>
-      <div>
-        <Contactform />
-      </div>
-    </div>
-  </Container>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">
+              WhatsApp Number
+            </label>
+            <input
+              name="whatsapp"
+              type="tel"
+              required
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="+971 5x xxx xxxx"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">
+              Email (optional)
+            </label>
+            <input
+              name="email"
+              type="email"
+              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="you@example.com"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            Treatment Interested In
+          </label>
+          <select
+            name="treatment"
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option>Hair transplant / hair restoration</option>
+            <option>Dental implants / smile makeover</option>
+            <option>Cosmetic / plastic surgery</option>
+            <option>Multiple / not sure yet</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1">
+            Brief Case Details
+          </label>
+          <textarea
+            name="message"
+            rows="4"
+            required
+            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Share your condition, previous treatment, expectations and tentative travel dates."
+          ></textarea>
+        </div>
+
+        <p class="text-xs text-slate-500">
+          By submitting, you agree that we can contact you via WhatsApp or email
+          for this enquiry. We do not share your details with anyone except
+          partner hospitals involved in your case.
+        </p>
+
+        <button
+          type="submit"
+          class="mt-2 inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+        >
+          Submit Enquiry
+        </button>
+      </form>
+    </section>
+  </main>
 </Layout>
