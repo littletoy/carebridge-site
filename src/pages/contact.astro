@@ -2,150 +2,138 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout
-  title="Contact CareBridge Health | Get a Free Treatment Estimate"
-  description="Contact CareBridge Health to get a free estimate for hair transplant, dental or cosmetic surgery in India. Share your case details and our team will respond with options and pricing."
->
+<Layout title="Contact CareBridge Health – Free Treatment Quote">
   <main class="container mx-auto px-5 py-12 max-w-3xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-900">
+    <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
       Contact CareBridge Health
     </h1>
-
-    <p class="text-lg text-slate-600 mb-8">
-      Share a few details about your case and what treatment you’re interested in.
-      Our team will review it with our partner hospitals and get back with
-      options, estimated costs and next steps.
+    <p class="text-slate-600 mb-8">
+      Share a few details and our team will get back to you within 24 hours
+      with treatment options, hospital suggestions, and an estimated cost.
     </p>
 
-    <!-- WhatsApp quick CTA -->
-    <section class="mb-10 rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4">
-      <p class="text-slate-800 mb-2 font-semibold">
-        Prefer WhatsApp?
-      </p>
-      <p class="text-slate-700 mb-4">
-        You can send reports, photos and questions directly to us:
-      </p>
-      <a
-        href="https://wa.me/919080553616"
-        target="_blank"
-        rel="noopener"
-        class="inline-flex items-center justify-center rounded-md bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-green-700"
-      >
-        Chat on WhatsApp (+91 90805 53616)
-      </a>
-    </section>
+    <form
+      action="https://formspree.io/f/xojvrood"
+      method="POST"
+      class="bg-white rounded-2xl shadow-lg p-6 md:p-8 space-y-5"
+    >
+      <!-- Hidden fields -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="New enquiry from CareBridge Health website"
+      />
+      <!-- optional: where to redirect after success -->
+      <!-- <input type="hidden" name="_redirect" value="https://carebridge-health.com/thank-you" /> -->
 
-    <!-- Contact form -->
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Get a Free Treatment Estimate</h2>
-
-      {/*
-        NOTE:
-        - For now the form does nothing on submit.
-        - To actually receive submissions, hook this to Formspree, a simple backend,
-          or a Cloudflare Worker and update the "action" + "method" accordingly.
-      */}
-      <form
-        class="space-y-5"
-        method="POST"
-        action="#"
-      >
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">
-              Full Name
-            </label>
-            <input
-              name="name"
-              type="text"
-              required
-              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="Your full name"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">
-              Country / City
-            </label>
-            <input
-              name="country"
-              type="text"
-              required
-              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="E.g. Dubai, UAE"
-            />
-          </div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">
-              WhatsApp Number
-            </label>
-            <input
-              name="whatsapp"
-              type="tel"
-              required
-              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="+971 5x xxx xxxx"
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">
-              Email (optional)
-            </label>
-            <input
-              name="email"
-              type="email"
-              class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              placeholder="you@example.com"
-            />
-          </div>
-        </div>
-
+      <div class="grid md:grid-cols-2 gap-5">
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">
-            Treatment Interested In
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="name">
+            Full Name
           </label>
-          <select
-            name="treatment"
-            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option>Hair transplant / hair restoration</option>
-            <option>Dental implants / smile makeover</option>
-            <option>Cosmetic / plastic surgery</option>
-            <option>Multiple / not sure yet</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">
-            Brief Case Details
-          </label>
-          <textarea
-            name="message"
-            rows="4"
+          <input
+            id="name"
+            name="name"
+            type="text"
             required
-            class="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Share your condition, previous treatment, expectations and tentative travel dates."
-          ></textarea>
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="John Doe"
+          />
         </div>
 
-        <p class="text-xs text-slate-500">
-          By submitting, you agree that we can contact you via WhatsApp or email
-          for this enquiry. We do not share your details with anyone except
-          partner hospitals involved in your case.
-        </p>
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="country">
+            Country
+          </label>
+          <input
+            id="country"
+            name="country"
+            type="text"
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="UAE, UK, USA, etc."
+          />
+        </div>
+      </div>
 
-        <button
-          type="submit"
-          class="mt-2 inline-flex items-center justify-center rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
+      <div class="grid md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="email">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-slate-700 mb-1" for="phone">
+            WhatsApp Number
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="+971 50 000 0000"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1" for="treatment">
+          Treatment Type
+        </label>
+        <select
+          id="treatment"
+          name="treatment"
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
-          Submit Enquiry
-        </button>
-      </form>
-    </section>
+          <option value="">Select treatment</option>
+          <option>Hair Transplant</option>
+          <option>Dental Implants / Smile Makeover</option>
+          <option>Cosmetic / Plastic Surgery</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium text-slate-700 mb-1" for="message">
+          Medical Details / Question
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          required
+          class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Short history, reports, what treatment you are looking for…"
+        ></textarea>
+      </div>
+
+      <!-- simple spam trap (Formspree honey pot) -->
+      <div class="hidden">
+        <label>
+          Don’t fill this out if you’re human:
+          <input name="_gotcha" type="text" />
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+      >
+        Submit Enquiry
+      </button>
+
+      <p class="text-xs text-slate-400">
+        By submitting, you agree to be contacted by CareBridge Health over email or
+        WhatsApp regarding your enquiry.
+      </p>
+    </form>
   </main>
 </Layout>
