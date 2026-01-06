@@ -8,6 +8,7 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string; // Added for the new meta description
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -17,25 +18,39 @@ const resolvedImageWithDomain = new URL(
   Astro.site
 ).toString();
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const makeTitle = title
   ? title + " | " + "Astroship"
   : "Astroship - Starter Template for Astro with Tailwind CSS";
+
+const metaDescription = description || "Astroship is a starter website template for Astro built with TailwindCSS.";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{makeTitle}</title>
+    <meta name="description" content={metaDescription} />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MW8F4JMWGM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MW8F4JMWGM');
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description={metaDescription}
       canonical={canonicalURL}
       twitter={{
         creator: "@surjithctly",
