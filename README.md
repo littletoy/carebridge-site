@@ -6,9 +6,9 @@ This Free Template is sponsored by [Web3Templates](https://web3templates.com)
 
 ## Live Demo
 
-**[https://astroship.web3templates.com/](https://astroship.web3templates.com/)**
+**[https://carebridge-health.com")**
 
-**[Download Astroship Template](https://web3templates.com/templates/astroship-starter-website-template-for-astro)**
+**[Download Astroship Template](https://carebridge-health.com"/astroship-starter-website-template-for-astro)**
 
 ## Upgrade to Astroship Pro Version
 
