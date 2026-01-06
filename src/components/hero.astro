@@ -4,7 +4,6 @@ import { Icon } from "astro-icon/components";
 ---
 
 <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <!-- Image second on mobile, first on desktop -->
   <div class="py-6 order-2 md:order-1">
     <img
       src="/doctor-india.jpg"
@@ -15,20 +14,22 @@ import { Icon } from "astro-icon/components";
     />
   </div>
 
-  <!-- Text first on mobile, second on desktop -->
   <div class="order-1 md:order-2">
     <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Expert Hair Transplants & Surgeries in India
+      Expert Hair Transplants 
+      & Surgeries in India
     </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      CareBridge Health connects international patients with India's top JCI-accredited hospitals. Save up to 70% on premium medical treatments.
+      CareBridge Health connects international patients with India's top JCI-accredited hospitals.
+      Save up to 70% on premium medical treatments.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
         href="https://wa.me/919080553616"
         target="_blank"
         class="flex gap-1 items-center justify-center"
-        rel="noopener">
+        rel="noopener"
+        data-ga-whatsapp>
         <Icon class="text-white w-5 h-5" name="bx:bxl-whatsapp" />
         Get Free Quote via WhatsApp
       </Link>
