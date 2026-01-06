@@ -8,7 +8,7 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
-  description?: string; // Added for the new meta description
+  description?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
@@ -20,11 +20,15 @@ const resolvedImageWithDomain = new URL(
 
 const { title, description } = Astro.props;
 
+// *************** BRANDING ***************
 const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+  ? `${title} | CareBridge Health`
+  : "CareBridge Health – Medical Tourism & Hair Transplants in India";
 
-const metaDescription = description || "Astroship is a starter website template for Astro built with TailwindCSS.";
+const metaDescription =
+  description ||
+  "CareBridge Health connects international patients with India's top JCI-accredited hospitals for hair transplant, dental and cosmetic treatments, saving up to 70% on costs.";
+// ****************************************
 ---
 
 <!doctype html>
@@ -47,25 +51,22 @@ const metaDescription = description || "Astroship is a starter website template 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
       description={metaDescription}
       canonical={canonicalURL}
       twitter={{
-        creator: "@surjithctly",
-        site: "@web3templates",
         card: "summary_large_image",
       }}
       openGraph={{
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Astroship - Starter Template for Astro`,
+          title: "CareBridge Health – Medical Tourism & Hair Transplants in India",
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Astroship Homepage Screenshot",
+          alt: "CareBridge Health homepage",
         },
       }}
     />
