@@ -81,5 +81,22 @@ const metaDescription = description || "Astroship is a starter website template 
         content-visibility: auto;
       }
     </style>
+
+    <!-- WhatsApp click tracking script -->
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const waLinks = document.querySelectorAll('[data-ga-whatsapp]');
+        waLinks.forEach((el) => {
+          el.addEventListener('click', () => {
+            if (window.gtag) {
+              window.gtag('event', 'whatsapp_click', {
+                event_category: 'engagement',
+                event_label: el.href
+              });
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
