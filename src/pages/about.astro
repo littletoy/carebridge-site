@@ -1,67 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
 ---
 
-<Layout title="About CareBridge Health – Medical Tourism Facilitator">
-  <main class="container mx-auto px-5 py-12 max-w-4xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">About CareBridge Health</h1>
-    <p class="text-slate-600 text-lg mb-6">
-      CareBridge Health is a medical travel coordination service that helps
-      international patients access safe, high-quality treatment in India.
-      We are not a hospital – we act as your bridge between home and trusted
-      healthcare providers.
-    </p>
-
-    <section class="mb-8 space-y-3 text-slate-600">
-      <h2 class="text-2xl font-semibold">Our Role</h2>
-      <p>
-        We work with a small, curated network of hospitals, clinics and
-        specialists that meet strict quality, safety and communication
-        standards. Our team helps you understand your options, compare
-        treatment plans and organise your trip end-to-end.
+<Layout title="About CareBridge Health | Safety First Medical Tourism">
+  <Container>
+    <div class="mt-16 max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-slate-900">We Don't Own Hospitals.<br>We Audit Them.</h1>
+      <p class="text-xl mt-4 text-slate-600">
+        CareBridge Health is not a hospital. We are a patient safety advocate that helps international patients navigate India's medical system without getting ripped off.
       </p>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Pre-screening of your case and reports</li>
-        <li>Getting opinions and quotes from partner hospitals</li>
-        <li>Scheduling, logistics and documentation support</li>
-        <li>Local assistance during your stay in India</li>
-      </ul>
-    </section>
+    </div>
 
-    <section class="mb-8 space-y-3 text-slate-600">
-      <h2 class="text-2xl font-semibold">What We Focus On</h2>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Hair transplant and hair restoration</li>
-        <li>Dental implants and cosmetic dentistry</li>
-        <li>Cosmetic & plastic surgery (selected procedures)</li>
-      </ul>
-    </section>
+    <div class="mt-16 grid md:grid-cols-2 gap-10">
+      <div>
+         <img 
+          src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop" 
+          alt="CareBridge Team auditing a clinic" 
+          class="rounded-lg shadow-xl"
+        />
+      </div>
+      <div class="flex flex-col justify-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">The 80% Rejection Rule</h2>
+        <p class="text-slate-600 mb-6">
+          India has over 5,000 hair and dental clinics. <strong>Most are unsafe.</strong>
+          They reuse needles, hire unqualified technicians, and hide hidden costs.
+        </p>
+        <p class="text-slate-600 mb-6">
+          At CareBridge, we physically inspect our partner clinics. We check their sterilization logs, their surgeon's certifications, and their pricing. 
+          <strong>We reject 80% of the clinics that apply to work with us.</strong>
+        </p>
+        <p class="font-bold text-slate-900">If we wouldn't send our own family there, we won't send you.</p>
+      </div>
+    </div>
 
-    <section class="bg-slate-50 rounded-xl p-6 md:p-8 mb-8">
-      <h2 class="text-2xl font-semibold mb-2">Transparency & Limitations</h2>
-      <p class="text-slate-600">
-        We are not doctors and we do not replace medical advice. All clinical
-        decisions are made by licensed healthcare professionals. Our job is to
-        make your journey smoother, safer and more organised, with clear
-        communication and no hidden surprises.
-      </p>
-    </section>
-
-    <section class="text-slate-600">
-      <h2 class="text-2xl font-semibold mb-3">Talk to Our Team</h2>
-      <p class="mb-4">
-        If you’re considering treatment in India, send us your basic details
-        and reports. We’ll respond with next steps and what information is
-        needed for a proper medical opinion.
-      </p>
-      <a
-        href="https://wa.me/919080553616"
-        target="_blank"
-        rel="noopener"
-        class="inline-flex items-center justify-center px-6 py-3 rounded bg-blue-600 text-white font-medium hover:bg-blue-700"
-      >
-        Message Us on WhatsApp
-      </a>
-    </section>
-  </main>
+    <div class="mt-20 mb-20">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Promise to You</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-2">1. No Hidden Costs</h3>
+          <p class="text-slate-600">The price we quote on WhatsApp is the final price. No "surprise" taxes or fees when you land in India.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-2">2. Direct Access</h3>
+          <p class="text-slate-600">You speak directly to the lead surgeon before booking your flight. No middlemen blocking the doctor.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-2">3. VIP Logistics</h3>
+          <p class="text-slate-600">From the moment you land at the airport, our team handles your SIM card, hotel check-in, and transport.</p>
+        </div>
+      </div>
+    </div>
+  </Container>
 </Layout>

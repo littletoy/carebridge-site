@@ -1,5 +1,9 @@
 ---
-const navLinks = [
+import Container from "../container.astro";
+import Dropdown from "./dropdown.astro";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+
+const menuitems = [
   { href: "/", label: "Home" },
   { href: "/hair-transplant", label: "Hair Transplant" },
   { href: "/dental", label: "Dental" },
@@ -9,106 +13,58 @@ const navLinks = [
   { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact" },
 ];
-
-const pathname = Astro.url.pathname;
-
-const isActive = (href: string) => {
-  if (href === "/") return pathname === "/";
-  return pathname.startsWith(href);
-};
 ---
 
-<header class="border-b border-slate-100 bg-white/80 backdrop-blur-sm">
-  <!-- Mobile menu toggle (peer) -->
-  <input id="nav-toggle" type="checkbox" class="hidden peer" />
-
-  <!-- Top bar -->
-  <div class="container mx-auto px-5 flex items-center justify-between py-3 md:py-4">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-2">
-      <img
-        src="/logo.png"
-        alt="CareBridge Health logo"
-        class="h-10 w-auto sm:h-12 md:h-14"
-        loading="lazy"
-      />
-      <span class="text-lg font-semibold text-slate-900">
-        CareBridge
-      </span>
-    </a>
-
-    <!-- Desktop nav -->
-    <nav class="hidden items-center gap-6 text-sm font-medium text-slate-700 md:flex">
-      {navLinks.map((item) => (
-        <a
-          href={item.href}
-          class={
-            "transition hover:text-slate-900 " +
-            (isActive(item.href)
-              ? "text-slate-900 font-semibold"
-              : "text-slate-600")
-          }
-        >
-          {item.label}
+<Container>
+  <header class="flex flex-col lg:flex-row justify-between items-center my-5">
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/logo.png" alt="CareBridge Health" class="h-14 w-auto" />
         </a>
-      ))}
-    </nav>
-
-    <!-- Desktop CTA -->
-    <div class="hidden md:block">
-      <a
-        href="https://wa.me/919080553616"
-        target="_blank"
-        rel="noopener"
-        class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
-        data-ga-whatsapp
-      >
-        Chat on WhatsApp
-      </a>
-    </div>
-
-    <!-- Mobile hamburger -->
-    <label
-      for="nav-toggle"
-      class="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border border-slate-200 md:hidden"
-      aria-label="Toggle navigation"
-    >
-      <div class="space-y-1.5">
-        <span class="block h-0.5 w-4 bg-slate-800"></span>
-        <span class="block h-0.5 w-4 bg-slate-800"></span>
-        <span class="block h-0.5 w-4 bg-slate-800"></span>
+        <div class="block lg:hidden">
+          <MenuIcon class="w-8 h-8 text-slate-800" />
+        </div>
       </div>
-    </label>
-  </div>
+      <MenuItems class="hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
 
-  <!-- Mobile nav -->
-  <nav
-    class="hidden border-t border-slate-100 bg-white px-5 pb-4 pt-2 text-sm font-medium text-slate-700 peer-checked:block md:hidden"
-  >
-    <div class="flex flex-col gap-2">
-      {navLinks.map((item) => (
-        <a
-          href={item.href}
-          class={
-            "rounded-md px-1 py-1.5 transition " +
-            (isActive(item.href)
-              ? "bg-slate-100 text-slate-900 font-semibold"
-              : "text-slate-700 hover:bg-slate-50")
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="flex lg:px-3 py-2 items-center text-slate-600 hover:text-blue-600 font-medium transition">
+                      {item.label}
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
           }
-        >
-          {item.label}
+        </ul>
+        <div class="lg:hidden flex items-center mt-3 gap-4">
+          <a href="https://wa.me/919080553616" class="px-4 py-2 rounded text-white bg-blue-600 hover:bg-blue-700 w-full text-center">
+             Chat on WhatsApp
+          </a>
+        </div>
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="https://wa.me/919080553616" class="px-6 py-2 rounded-lg text-white bg-blue-600 hover:bg-blue-700 font-bold transition shadow-lg shadow-blue-600/20">
+          Chat on WhatsApp
         </a>
-      ))}
-
-      <a
-        href="https://wa.me/919080553616"
-        target="_blank"
-        rel="noopener"
-        class="mt-2 inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-700"
-        data-ga-whatsapp
-      >
-        Chat on WhatsApp
-      </a>
+      </div>
     </div>
-  </nav>
-</header>
+  </header>
+</Container>

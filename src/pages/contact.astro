@@ -1,126 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
 ---
 
-<Layout title="Contact CareBridge Health - Free Treatment Quote">
-  <main class="container mx-auto px-5 py-12 max-w-3xl">
-    <h1 class="text-3xl md:text-4xl font-bold mb-4">
-      Get a Free Treatment Quote
-    </h1>
-    <p class="text-slate-600 mb-8">
-      Share a few details and our team will contact you with treatment options,
-      estimated costs, and recommended hospitals in India.
-    </p>
+<Layout title="Contact Us | CareBridge Health">
+  <Container>
+    <div class="mt-16 text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl font-bold text-slate-900">Get in Touch</h1>
+      <p class="text-lg mt-4 text-slate-600">
+        We are based in Tamil Nadu, India, but we serve patients globally.
+      </p>
+    </div>
 
-    <form
-      action="https://formspree.io/f/xojvrood"
-      method="POST"
-      class="space-y-6 bg-white shadow-lg rounded-xl p-6 md:p-8"
-    >
-      <!-- Name -->
-      <div>
-        <label for="name" class="block text-sm font-medium text-slate-700">
-          Full Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="John Smith"
-        />
+    <div class="mt-16 grid md:grid-cols-2 gap-10 max-w-4xl mx-auto mb-20">
+      <div class="bg-slate-50 p-8 rounded-xl text-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Fastest Response</h2>
+        <p class="text-slate-600 mb-6">For quotes and medical questions, WhatsApp is best.</p>
+        <a href="https://wa.me/919994581853" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition">
+          Chat on WhatsApp
+        </a>
       </div>
 
-      <!-- Email -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-slate-700">
-          Email Address
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="you@example.com"
-        />
+      <div class="bg-slate-50 p-8 rounded-xl text-center">
+        <h2 class="text-2xl font-bold text-slate-900 mb-4">Email Us</h2>
+        <p class="text-slate-600 mb-6">Send your medical reports or X-rays for review.</p>
+        <a href="mailto:support@carebridge-health.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">
+          support@carebridge-health.com
+        </a>
       </div>
-
-      <!-- WhatsApp / Phone -->
-      <div>
-        <label for="phone" class="block text-sm font-medium text-slate-700">
-          WhatsApp Number (with country code)
-        </label>
-        <input
-          id="phone"
-          name="phone"
-          type="tel"
-          required
-          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="+1 555 123 4567"
-        />
-      </div>
-
-      <!-- Treatment type -->
-      <div>
-        <label
-          for="treatment"
-          class="block text-sm font-medium text-slate-700"
-        >
-          Treatment Interested In
-        </label>
-        <select
-          id="treatment"
-          name="treatment"
-          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        >
-          <option value="">Select an option</option>
-          <option>Hair Transplant</option>
-          <option>Dental Treatment</option>
-          <option>Cosmetic / Plastic Surgery</option>
-          <option>Other / Not Sure</option>
-        </select>
-      </div>
-
-      <!-- Message -->
-      <div>
-        <label
-          for="message"
-          class="block text-sm font-medium text-slate-700"
-        >
-          Brief Medical Details
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          class="mt-1 block w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          placeholder="Tell us about your condition, reports, and preferred treatment dates."
-        ></textarea>
-      </div>
-
-      <!-- Submit + disclaimer -->
-      <div class="space-y-2">
-        <button
-          type="submit"
-          class="w-full md:w-auto inline-flex justify-center items-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-        >
-          Submit Enquiry
-        </button>
-
-        <p class="text-xs text-slate-400">
-          By submitting, you agree to be contacted by CareBridge Health over
-          email or WhatsApp regarding your enquiry.
-        </p>
-      </div>
-
-      <!-- Redirect after successful submit -->
-      <input
-        type="hidden"
-        name="_redirect"
-        value="https://carebridge-health.com/thank-you"
-      />
-    </form>
-  </main>
+    </div>
+  </Container>
 </Layout>
