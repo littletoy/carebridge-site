@@ -1,249 +1,102 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TravelCTA from "../components/TravelCTA.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
 ---
 
-<Layout
-  title="Hair Transplant in India | CareBridge Health"
-  description="Affordable, high-quality hair transplant surgery in India with CareBridge Health. FUE / DHI, natural hairline design, transparent costs and full travel coordination for international patients."
->
-  <main class="container mx-auto px-5 py-12 max-w-5xl">
-    <!-- HERO -->
-    <section class="mb-12">
-      <p class="text-sm font-semibold text-blue-700 mb-2">
-        Hair Transplant · International Patients
-      </p>
-      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        Hair Transplant in India with clear planning and support
+<Layout title="Hair Transplant in India | CareBridge Health">
+  <Container>
+    <div class="mt-16 text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
+        Premium FUE Hair Transplants<br>
+        <span class="text-blue-600">at 70% Less Cost</span>
       </h1>
-      <p class="text-lg text-slate-600 max-w-3xl">
-        We help international patients from around the world get safe, 
-        well-planned hair transplant surgery in India. You get guidance before 
-        you fly, coordination during your stay, and follow-up after you return home.
+      <p class="text-lg mt-4 text-slate-600">
+        Get full density hair restoration with ABHRS-certified surgeons in India. 
+        Includes airport pickup, 5-star hotel, and lifetime warranty.
       </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a
-          href="https://wa.me/919080553616?text=Hi%2C%20I%20want%20to%20know%20if%20I%20am%20a%20good%20candidate%20for%20hair%20transplant."
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
-        >
-          Send photos on WhatsApp
+      
+      <div class="mt-8 flex justify-center gap-4">
+        <a href="/book" class="bg-black text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition">
+          Book Video Consult
         </a>
-        <p class="text-xs text-slate-500">
-          Free initial opinion · No obligation to book
-        </p>
+        <a href="https://wa.me/919080553616" class="bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-700 transition flex items-center gap-2">
+          <span>WhatsApp Quote</span>
+        </a>
       </div>
-    </section>
+    </div>
 
-    <!-- QUICK HIGHLIGHTS -->
-    <section class="grid gap-4 md:grid-cols-3 mb-14 text-sm">
-      <div class="rounded-xl bg-slate-50 p-4">
-        <h2 class="font-semibold text-slate-900 mb-1">FUE / DHI techniques</h2>
-        <p class="text-slate-600">
-          Modern extraction methods with focus on natural hairline, density and
-          donor area protection.
-        </p>
+    <div class="mt-24">
+      <h2 class="text-3xl font-bold text-center mb-10">Why India? The Price Difference</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 text-slate-900">
+              <th class="p-4 border-b-2 border-slate-200">Treatment</th>
+              <th class="p-4 border-b-2 border-slate-200">USA / UK Cost</th>
+              <th class="p-4 border-b-2 border-slate-200">Turkey Cost</th>
+              <th class="p-4 border-b-2 border-blue-600 bg-blue-50 text-blue-800">CareBridge India</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-4 border-b">FUE (2500 Grafts)</td>
+              <td class="p-4 border-b text-red-600 font-medium">$12,000</td>
+              <td class="p-4 border-b">$3,500</td>
+              <td class="p-4 border-b font-bold text-green-700">$1,800</td>
+            </tr>
+            <tr>
+              <td class="p-4 border-b">DHI (Direct Implant)</td>
+              <td class="p-4 border-b text-red-600 font-medium">$15,000</td>
+              <td class="p-4 border-b">$4,200</td>
+              <td class="p-4 border-b font-bold text-green-700">$2,200</td>
+            </tr>
+            <tr>
+              <td class="p-4 border-b">Surgeon Certification</td>
+              <td class="p-4 border-b">Varies</td>
+              <td class="p-4 border-b">Technician Often Does It</td>
+              <td class="p-4 border-b font-bold">ABHRS Certified Doctor</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="rounded-xl bg-slate-50 p-4">
-        <h2 class="font-semibold text-slate-900 mb-1">Transparent planning</h2>
-        <p class="text-slate-600">
-          Approximate graft range, sessions required and stay length shared before you commit.
-        </p>
+    </div>
+
+    <div class="mt-24 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+         <img 
+          src="https://images.unsplash.com/photo-1516549655169-df83a092fc4b?q=80&w=2070&auto=format&fit=crop" 
+          alt="Doctor explaining procedure" 
+          class="rounded-lg shadow-xl"
+        />
       </div>
-      <div class="rounded-xl bg-slate-50 p-4">
-        <h2 class="font-semibold text-slate-900 mb-1">End-to-end coordination</h2>
-        <p class="text-slate-600">
-          Help with dates, airport pick-up, language support and basic after-care instructions.
-        </p>
+      <div>
+        <h2 class="text-3xl font-bold text-slate-900 mb-6">Our 3-Day "Medical Holiday"</h2>
+        <ul class="space-y-4">
+          <li class="flex gap-3">
+            <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</span>
+            <div>
+              <strong class="block text-slate-900">Arrival & VIP Pickup</strong>
+              <p class="text-slate-600">Our driver meets you at the airport and takes you to your 4-star hotel.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</span>
+            <div>
+              <strong class="block text-slate-900">Surgery Day (6-8 Hours)</strong>
+              <p class="text-slate-600">Painless anesthesia. You watch Netflix while the doctor implants grafts.</p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</span>
+            <div>
+              <strong class="block text-slate-900">Wash & Sightseeing</strong>
+              <p class="text-slate-600">Post-op checkup. Enjoy a local tour before your flight home.</p>
+            </div>
+          </li>
+        </ul>
       </div>
-    </section>
-
-    <!-- CANDIDATE CHECK -->
-    <section class="mb-14">
-      <h2 class="text-2xl font-bold text-slate-900 mb-3">
-        Are you a good candidate for hair transplant?
-      </h2>
-      <p class="text-slate-600 mb-4">
-        Not everyone with hair loss should immediately do a transplant. 
-        First we look at your current pattern, age, family history and donor area.
-      </p>
-
-      <div class="grid gap-6 md:grid-cols-2 text-sm text-slate-700">
-        <div class="rounded-xl border border-slate-100 p-4">
-          <h3 class="font-semibold mb-2">Usually good candidates</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Men with stable pattern (Norwood 3–5) and strong donor density</li>
-            <li>Previous transplant needing density or hairline correction</li>
-            <li>Eyebrow / beard restoration with realistic expectations</li>
-          </ul>
-        </div>
-        <div class="rounded-xl border border-rose-100 bg-rose-50/60 p-4">
-          <h3 class="font-semibold mb-2 text-rose-800">We may advise “not yet” or “no” if</h3>
-          <ul class="list-disc list-inside space-y-1">
-            <li>Hair loss is very early and still rapidly progressing</li>
-            <li>Donor area is weak or over-harvested from past surgery</li>
-            <li>You expect “full teenage density” from one session</li>
-          </ul>
-          <p class="mt-2 text-xs text-rose-900/80">
-            Saying “no” is part of our job. Long-term result is more important than selling a package.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TECHNIQUES -->
-    <section class="mb-14">
-      <h2 class="text-2xl font-bold text-slate-900 mb-3">
-        Techniques and planning approach
-      </h2>
-      <p class="text-slate-600 mb-4">
-        The exact method is decided by the surgeon after examining you in 
-        person, but we usually talk about these options during the online assessment:
-      </p>
-
-      <div class="space-y-4 text-sm text-slate-700">
-        <div class="rounded-xl bg-slate-50 p-4">
-          <h3 class="font-semibold mb-1">FUE (Follicular Unit Extraction)</h3>
-          <p>
-            Individual grafts are taken from the donor area with tiny punches. 
-            Good for most male-pattern hair loss cases with sufficient donor.
-          </p>
-        </div>
-        <div class="rounded-xl bg-slate-50 p-4">
-          <h3 class="font-semibold mb-1">DHI / Implanter-based placement</h3>
-          <p>
-            Variation of FUE where grafts are placed using implanter pens. 
-            Helps with dense packing in selected areas when done correctly.
-          </p>
-        </div>
-        <div class="rounded-xl bg-slate-50 p-4">
-          <h3 class="font-semibold mb-1">Medical therapy + transplant combo</h3>
-          <p>
-            In many patients we combine transplant with medical treatment 
-            (where safe) to protect existing hair and slow future loss.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- COST & STAY -->
-    <section class="mb-14">
-      <h2 class="text-2xl font-bold text-slate-900 mb-3">
-        Cost &amp; typical stay in India
-      </h2>
-      <p class="text-slate-600 mb-4">
-        Exact cost depends on grafts, technique, city and clinic, but these 
-        ranges help you decide if travelling makes sense.
-      </p>
-
-      <div class="grid gap-6 md:grid-cols-3 text-sm text-slate-700">
-        <div class="rounded-xl border border-slate-100 p-4">
-          <h3 class="font-semibold mb-1">Grafts</h3>
-          <p class="mb-1">Most cases: <span class="font-medium">2,000–4,000 grafts</span></p>
-          <p class="text-xs text-slate-500">
-            Higher counts may need two days or staged sessions.
-          </p>
-        </div>
-        <div class="rounded-xl border border-slate-100 p-4">
-          <h3 class="font-semibold mb-1">Stay length</h3>
-          <p>Typical visit: <span class="font-medium">5–7 days</span></p>
-          <ul class="mt-1 list-disc list-inside text-xs space-y-1">
-            <li>Day 1: consult + tests</li>
-            <li>Day 2: surgery</li>
-            <li>Day 3–5: wash &amp; checks</li>
-          </ul>
-        </div>
-        <div class="rounded-xl border border-slate-100 p-4">
-          <h3 class="font-semibold mb-1">Cost advantage</h3>
-          <p>
-            Many international patients save around 
-            <span class="font-medium">50–70% vs. their home country</span>, 
-            even after flights and hotel, while using accredited hospitals.
-          </p>
-        </div>
-      </div>
-
-      <p class="mt-4 text-xs text-slate-500">
-        We’ll give you a personalised range after seeing your photos and medical history. 
-        Final quote always comes from the treating clinic, not from CareBridge alone.
-      </p>
-    </section>
-
-    <!-- VIDEO SECTION -->
-    <section class="mb-14">
-      <h2 class="text-2xl font-bold text-slate-900 mb-3">
-        Watch: How the CareBridge hair transplant journey works
-      </h2>
-      <p class="text-slate-600 mb-4">
-        This short video explains the full process – from first WhatsApp message 
-        to flying back home after surgery.
-      </p>
-
-      <div class="relative w-full pt-[56.25%] rounded-2xl overflow-hidden bg-black/80">
-        <iframe
-          class="absolute inset-0 h-full w-full"
-          src="https://www.youtube.com/embed/RUMWGaiIBXI"
-          title="Hair transplant journey explainer"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="mb-16">
-      <h2 class="text-2xl font-bold text-slate-900 mb-4">
-        Hair transplant FAQs
-      </h2>
-      <div class="space-y-4 text-sm text-slate-700">
-        <details class="rounded-xl bg-slate-50 p-4">
-          <summary class="font-semibold cursor-pointer">
-            When will I see full results?
-          </summary>
-          <p class="mt-2">
-            Most patients see shedding in the first month, visible growth from 
-            month 3–4, and the main result around month 9–12. Final refinement 
-            can continue up to 18 months.
-          </p>
-        </details>
-
-        <details class="rounded-xl bg-slate-50 p-4">
-          <summary class="font-semibold cursor-pointer">
-            Will people notice I had a transplant?
-          </summary>
-          <p class="mt-2">
-            In the first 10–14 days, yes – there will be redness and scabs. 
-            After that it looks like a short buzz-cut. Once the hair grows, 
-            a properly designed hairline should look natural in normal social distance.
-          </p>
-        </details>
-
-        <details class="rounded-xl bg-slate-50 p-4">
-          <summary class="font-semibold cursor-pointer">
-            Can you guarantee a specific number of grafts or density?
-          </summary>
-          <p class="mt-2">
-            No one can honestly guarantee exact graft numbers or final density 
-            before seeing you in person. We share a realistic range and ask the 
-            clinic to confirm after physical examination.
-          </p>
-        </details>
-
-        <details class="rounded-xl bg-slate-50 p-4">
-          <summary class="font-semibold cursor-pointer">
-            What happens if I change my mind after the online assessment?
-          </summary>
-          <p class="mt-2">
-            Nothing. The initial WhatsApp discussion and case review are free. 
-            You should only travel if you genuinely feel comfortable with the plan.
-          </p>
-        </details>
-      </div>
-    </section>
-
-    <!-- Travel CTA from shared component -->
-    <TravelCTA />
-  </main>
+    </div>
+    
+  </Container>
 </Layout>
