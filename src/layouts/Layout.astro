@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
+import ChatWidget from "../components/ChatWidget.astro"; // Import is here
 
 export interface Props {
   title: string;
@@ -39,7 +40,6 @@ const metaDescription =
     <title>{makeTitle}</title>
     <meta name="description" content={metaDescription} />
 
-    <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-MW8F4JMWGM"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -75,6 +75,9 @@ const metaDescription =
     <Navbar />
     <slot />
     <Footer />
+    
+    <ChatWidget />
+
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
@@ -83,7 +86,6 @@ const metaDescription =
       }
     </style>
 
-    <!-- WhatsApp click tracking script -->
     <script>
       window.addEventListener('DOMContentLoaded', () => {
         const waLinks = document.querySelectorAll('[data-ga-whatsapp]');

@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+---
+
+<Layout title="Book Video Consultation | CareBridge Health">
+  <Container>
+    <div class="mt-16 text-center max-w-3xl mx-auto mb-10">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">Book a Free Video Consult</h1>
+      <p class="text-lg text-slate-600">
+        Choose a time below. You will receive a Google Meet link instantly via email.
+      </p>
+    </div>
+
+    <div class="calendly-inline-widget" 
+         data-url="https://calendly.com/karunakaran-carebridge-health/30min" 
+         style="min-width:320px;height:700px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </Container>
+</Layout>
