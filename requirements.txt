@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+google-api-python-client
+google-auth
+httpx
+gspread
+oauth2client
