@@ -1,21 +1,6 @@
-# build output
-dist/
-.output/
-.astro
-
-# dependencies
-node_modules/
-
-# logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
-.DS_Store
+service_account*.json
+__pycache__/
+ngrok.exe
+.venv/
+*.mp4
+.env 
