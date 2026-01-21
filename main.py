@@ -20,6 +20,9 @@ OWNER_PHONE = "919080553616"
 # Use the EXACT name from your approved screenshot
 INTRO_CAMPAIGN = "carebridge_intro_live"
 
+# ✅ IMPORTANT: Replace this with your APPROVED API campaign that asks for location
+LOCATION_PROMPT_CAMPAIGN = "carebridge_location_request_live"
+
 # Your website hosted video
 VIDEO_URL = "https://carebridge-health.com/intro.mp4"
 
@@ -104,16 +107,24 @@ async def handle_whatsapp(request: Request):
         except:
             row_idx = None
 
-        # --- UPDATED FLOW LOGIC ---
+        # --- IMPROVED FLOW LOGIC ---
         if "start assessment" in text:
+            # Check if they are ALREADY in the assessment flow
+            if row_idx:
+                current_status = sheet.cell(row_idx, 3).value
+                if current_status != "New":
+                    # They are already past the intro, so ask for location instead
+                    send_whatsapp(phone, LOCATION_PROMPT_CAMPAIGN)
+                    return {"status": "moved_to_location"}
+
+            # If they are new, send the intro
             if not row_idx:
                 sheet.append_row([phone, "Patient", "AWAITING_LOCATION", "N/A", "N/A", "New", "No Photo", timestamp])
             else:
                 sheet.update_cell(row_idx, 3, "AWAITING_LOCATION")
 
-            # FIX: Pass ["Patient"] or any name string to fill {{1}}
             send_whatsapp(phone, INTRO_CAMPAIGN, params=["Patient"], media_url=VIDEO_URL)
-            return {"status": "video_sent"}
+            return {"status": "intro_sent"}
 
         if not row_idx:
             return {"status": "ignored"}
