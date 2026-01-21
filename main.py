@@ -3,133 +3,150 @@ import requests
 import uvicorn
 import os
 import json
+import base64
 from fastapi import FastAPI, Request
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from datetime import datetime
 
 app = FastAPI()
 
-# --- CONFIGURATION (VERIFY THESE NAMES IN AISENSY DASHBOARD) ---
+# --- CONFIGURATION ---
 API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NmM3NTUxZWM2YmRlN2JhNzc4OGJkMCIsIm5hbWUiOiJDYXJlQnJpZGdlIEhlYWx0aCIsImFwcE5hbWUiOiJBaVNlbnN5IiwiY2xpZW50SWQiOiI2OTZjNzU1MWVjNmJkZTdiYTc3ODhiY2IiLCJhY3RpdmVQbGFuIjoiUFJPX01PTlRITFkiLCJpYXQiOjE3Njg4OTY3ODl9.fjEYo4IKjTu8NmVUF9PEx-MsVCuxqGB9v_lFXIJQ4Zo"
 AISENSY_URL = "https://backend.aisensy.com/campaign/t1/api/v2"
 SHEET_NAME = "Building Lead Assessment Logic Schema"
-OWNER_PHONE = "919080553616" 
+OWNER_PHONE = "919080553616"
 
-# --- GOOGLE SHEETS CONNECTION ---
+# --- CAMPAIGN NAMES ---
+# Use the EXACT name from your approved screenshot
+INTRO_CAMPAIGN = "carebridge_intro_live"
+
+# Your website hosted video
+VIDEO_URL = "https://carebridge-health.com/intro.mp4"
+
+PHOTO_REQUEST_CAMPAIGN = "photo_request_live"
+THANK_YOU_CAMPAIGN = "thank_you_live"
+ADMIN_ALERT_CAMPAIGN = "admin_alert_live"
+
+# --- SECURE GSHEET CONNECTION ---
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 try:
-    creds = ServiceAccountCredentials.from_json_keyfile_name("service_account.json", scope)
+    # Logic to pull from Env Var (Base64 encoded to avoid quoting issues)
+    encoded_creds = os.environ.get("GCP_CREDS_B64")
+    if encoded_creds:
+        creds_json = base64.b64decode(encoded_creds).decode("utf-8")
+        creds_dict = json.loads(creds_json)
+        creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
+        print("--- PROD MODE: CONNECTED VIA ENV VAR ---", flush=True)
+    else:
+        # Fallback for local testing
+        creds = Credentials.from_service_account_file("service_account.json", scopes=scope)
+        print("--- DEV MODE: CONNECTED VIA FILE ---", flush=True)
+
     client = gspread.authorize(creds)
-    spreadsheet = client.open(SHEET_NAME)
-    sheet = spreadsheet.sheet1
-    print("--- SUCCESS: GSHEET CONNECTED ---", flush=True)
+    sheet = client.open(SHEET_NAME).sheet1
 except Exception as e:
     print(f"--- [CRITICAL] GSHEET ERROR: {repr(e)} ---", flush=True)
 
-def send_whatsapp(phone, campaign, params=[], media_url=None):
-    """Hardened sender with safe name and error logging"""
+
+def send_whatsapp(phone, campaign, params=None, media_url=None):
+    """
+    Sends a WhatsApp message via AiSensy API Campaign.
+    params -> fills templateParams like {{1}}, {{2}}...
+    """
+    if params is None:
+        params = []
+
     payload = {
         "apiKey": API_KEY,
         "campaignName": campaign,
         "destination": phone,
         "userName": "CareBridge Patient",
         "templateParams": params,
-        "source": "Cloud_Backend"
+        "source": "Cloud_Backend",
     }
-    # Add media if it's a VIDEO template
+
+    # Video handling for intro
     if media_url:
-        payload["media"] = {"url": media_url, "filename": "intro_video.mp4"}
-        
+        payload["media"] = {"url": media_url, "filename": "intro.mp4"}
+
     try:
         res = requests.post(AISENSY_URL, json=payload, timeout=10)
-        print(f"--- [AISENSY RESPONSE] Status: {res.status_code} | Body: {res.text} ---", flush=True)
+        print(f"--- [AISENSY] {campaign} Status: {res.status_code} ---", flush=True)
         return res
     except Exception as e:
-        print(f"--- [AISENSY ERROR] {repr(e)} ---", flush=True)
+        print(f"--- [ERROR] {repr(e)} ---", flush=True)
         return None
 
+
 @app.api_route("/webhook", methods=["GET", "HEAD"])
-async def verify_and_head():
-    """Handles health checks from AiSensy and Uptime monitors"""
+async def health_check():
     return {"status": "Webhook Active"}
+
 
 @app.post("/webhook")
 async def handle_whatsapp(request: Request):
     try:
         raw_data = await request.json()
-        
-        # 1. Extraction Logic (Matches the AiSensy JSON structure we identified)
-        data_layer = raw_data.get("data", {})
-        message_layer = data_layer.get("message", {})
-        content_layer = message_layer.get("message_content", {})
-
-        phone = message_layer.get("phone_number")
-        text = str(content_layer.get("text", "")).strip().lower()
-        
-        # AiSensy sends media inside message_content
-        media_url = content_layer.get("mediaUrl") or content_layer.get("url")
-
-        print(f"DEBUG: Extracted Text: '{text}' | Phone: '{phone}' | Media: {media_url}", flush=True)
+        msg_content = raw_data.get("data", {}).get("message", {}).get("message_content", {})
+        phone = raw_data.get("data", {}).get("message", {}).get("phone_number")
+        text = str(msg_content.get("text", "")).strip().lower()
+        media_url = msg_content.get("mediaUrl") or msg_content.get("url")
 
         if not phone:
             return {"status": "ignored"}
 
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # 2. Find User in Sheet
+        # Find lead in sheet
         try:
             cell = sheet.find(phone)
             row_idx = cell.row if cell else None
-        except gspread.exceptions.CellNotFound:
+        except:
             row_idx = None
 
-        # --- STATE MACHINE LOGIC ---
-
-        # TRIGGER: Reset or Start
+        # --- UPDATED FLOW LOGIC ---
         if "start assessment" in text:
             if not row_idx:
-                # Column Order: Phone, Role, Status, City, Notes, LeadStatus, Photo, Timestamp, Workflow
-                new_row = [phone, "Patient", "AWAITING_LOCATION", "N/A", "N/A", "New", "No Photo", timestamp, "Pending"]
-                sheet.append_row(new_row)
-                print(f"DEBUG: Created new lead: {phone}", flush=True)
+                sheet.append_row([phone, "Patient", "AWAITING_LOCATION", "N/A", "N/A", "New", "No Photo", timestamp])
             else:
                 sheet.update_cell(row_idx, 3, "AWAITING_LOCATION")
-                sheet.update_cell(row_idx, 8, timestamp)
-                print(f"DEBUG: Reset existing lead: {phone}", flush=True)
-            
-            send_whatsapp(phone, "carebridge_intro")
-            return {"status": "flow_initiated"}
+
+            # FIX: Pass ["Patient"] or any name string to fill {{1}}
+            send_whatsapp(phone, INTRO_CAMPAIGN, params=["Patient"], media_url=VIDEO_URL)
+            return {"status": "video_sent"}
 
         if not row_idx:
-            return {"status": "ignored", "reason": "user_not_in_system"}
+            return {"status": "ignored"}
 
-        # Get Current Status from Column C
         current_status = sheet.cell(row_idx, 3).value
 
-        # STATE 1: Capturing Location (City)
+        # State 1: City Capture
         if current_status == "AWAITING_LOCATION":
-            sheet.update_cell(row_idx, 4, text.title())     # Column D
-            sheet.update_cell(row_idx, 3, "AWAITING_PHOTO") # Column C
-            send_whatsapp(phone, "Carebridge_Photo_Request")
-            return {"status": "location_recorded"}
+            sheet.update_cell(row_idx, 4, text.title())
+            sheet.update_cell(row_idx, 3, "AWAITING_PHOTO")
+            send_whatsapp(phone, PHOTO_REQUEST_CAMPAIGN)
+            return {"status": "awaiting_photo"}
 
-        # STATE 2: Capturing Scalp Photo
-        elif current_status == "AWAITING_PHOTO" and media_url:
-            sheet.update_cell(row_idx, 7, media_url)        # Column G
-            sheet.update_cell(row_idx, 6, "Photo Received") # Column F
-            sheet.update_cell(row_idx, 3, "COMPLETED")      # Column C
-            
-            send_whatsapp(phone, "carebridge_thank_you")
-            # Admin Notification
-            send_whatsapp(OWNER_PHONE, "carebridge_admin_alert", [phone])
-            return {"status": "triage_completed"}
+        # State 2: Photo Append & Completion
+        elif current_status == "AWAITING_PHOTO":
+            if media_url:
+                existing = sheet.cell(row_idx, 7).value or ""
+                sheet.update_cell(row_idx, 7, f"{existing}, {media_url}".strip(", "))
 
-        return {"status": "no_state_match"}
+            if "i've uploaded all photos" in text:
+                sheet.update_cell(row_idx, 3, "COMPLETED")
+                send_whatsapp(phone, THANK_YOU_CAMPAIGN)
+
+                # Notify you
+                send_whatsapp(OWNER_PHONE, ADMIN_ALERT_CAMPAIGN, params=[phone, "Assessment Completed"])
+                return {"status": "finished"}
+
+        return {"status": "processing"}
 
     except Exception as e:
-        print(f"--- [CRITICAL ERROR] {repr(e)} ---", flush=True)
+        print(f"--- [CRITICAL] {repr(e)} ---", flush=True)
         return {"status": "error"}
 
+
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8080)))
