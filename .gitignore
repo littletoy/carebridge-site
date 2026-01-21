@@ -4,3 +4,6 @@ ngrok.exe
 .venv/
 *.mp4
 .env 
+node_modules/ 
+dist/ 
+.astro/ 
