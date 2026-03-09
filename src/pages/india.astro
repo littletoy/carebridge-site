@@ -9,52 +9,73 @@ const whatsappLink = "https://wa.me/919840653616?text=Hi%20CareBridge%2C%20I%20s
 <Layout title="CareBridge Health • Premium Hospital Network & Priority Appointments">
   <Container>
     <div class="relative isolate overflow-hidden bg-slate-50">
-      <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div class="absolute inset-x-0 top-0 h-[900px] bg-gradient-to-br from-blue-500/15 via-cyan-400/25 to-violet-500/15 blur-3xl"></div>
         <div class="absolute -left-60 top-32 h-[520px] w-[520px] rounded-full bg-gradient-to-br from-cyan-400/40 to-blue-600/30 blur-[140px]"></div>
         <div class="absolute -right-60 top-[420px] h-[520px] w-[520px] rounded-full bg-gradient-to-br from-violet-400/40 to-indigo-600/30 blur-[140px]"></div>
         <div class="absolute bottom-20 left-1/2 h-96 w-96 rounded-full bg-gradient-to-br from-emerald-400/30 to-teal-500/30 blur-[110px]"></div>
       </div>
 
-      <section class="min-h-screen pt-24 lg:pt-32 pb-20 flex items-center relative">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center px-6">
-          <div class="lg:col-span-7">
-            <div class="inline-flex items-center gap-3 px-8 py-3 bg-white/95 backdrop-blur-2xl rounded-3xl border border-white shadow-2xl mb-8">
-              <span class="text-emerald-500 text-xl">🏆</span>
-              <span class="font-bold text-emerald-700 tracking-[1.5px] uppercase text-sm">Official Partner of Manipal Hospitals</span>
+      <section class="min-h-screen pt-28 pb-16 md:pt-32 md:pb-20 flex items-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 md:gap-16 items-center px-4 sm:px-6 relative z-10">
+          <div class="lg:col-span-7 pt-10 md:pt-0">
+            <div class="inline-flex items-center gap-2 md:gap-3 px-4 md:px-8 py-2 md:py-3 bg-white/95 backdrop-blur-2xl rounded-full border border-white shadow-2xl mb-6 md:mb-8">
+              <span class="text-emerald-500 text-lg md:text-xl">🏆</span>
+              <span class="font-bold text-emerald-700 tracking-[1px] md:tracking-[1.5px] uppercase text-xs md:text-sm">Official Partner of Manipal Hospitals</span>
             </div>
 
-            <h1 class="text-6xl lg:text-7xl xl:text-[82px] font-black leading-[1.05] tracking-tighter text-slate-950">
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl xl:text-[82px] font-black leading-[1.1] md:leading-[1.05] tracking-tight text-slate-950">
               India's Best Surgeons.<br>
               <span class="bg-gradient-to-r from-blue-700 via-cyan-600 to-violet-600 bg-clip-text text-transparent">Without the Wait.</span>
             </h1>
 
-            <p class="mt-8 max-w-2xl text-2xl text-slate-600 font-light">
+            <p class="mt-6 md:mt-8 max-w-2xl text-lg md:text-2xl text-slate-600 font-light">
               Skip the hospital queues. We connect patients to elite JCI-accredited specialists in Bangalore and your city—delivering priority appointments, exact cost estimates, and VIP coordination.
             </p>
 
-            <div class="mt-12 flex flex-col sm:flex-row gap-5">
-              <a href={whatsappLink}
-                 class="group flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-2xl py-8 px-14 rounded-3xl flex items-center justify-center gap-5 shadow-2xl transition-all hover:scale-[1.03]">
-                <span>Check Surgery Costs</span>
-                <span class="text-4xl transition group-hover:rotate-12">💬</span>
-              </a>
-              <a href="#partners" class="flex-1 border-2 border-slate-900 hover:bg-slate-900 hover:text-white font-semibold text-xl py-8 px-14 rounded-3xl text-center transition-all">
-                See Our Partners →
-              </a>
-            </div>
+            <div class="mt-10 md:mt-16 relative">
+              
+              <div class="absolute -inset-1 bg-green-500/30 rounded-full blur-xl opacity-75 group-hover:opacity-100 animate-pulse z-0"></div>
 
-            <div class="mt-16 flex items-center gap-12 text-sm">
-              <div>
-                <div class="font-black text-4xl text-emerald-600">48 hr</div>
-                <div class="text-slate-500">Priority Booking</div>
+              <div class="flex flex-col md:flex-row gap-6 md:gap-8 relative z-10 items-center">
+                
+                <a href={whatsappLink}
+                   class="group/btn relative inline-flex items-center justify-center gap-4 md:gap-5 
+                          bg-green-500 hover:bg-green-600 text-white font-black text-2xl md:text-3xl 
+                          py-7 md:py-10 px-10 md:px-16 rounded-full md:rounded-3xl
+                          transition-all duration-300
+                          shadow-[0_15px_60px_-10px_rgba(16,185,129,0.7)] 
+                          hover:shadow-[0_25px_80px_-10px_rgba(16,185,129,0.9)] 
+                          hover:scale-[1.05] active:scale-[0.98]
+                          animate-wiggle-on-load overflow-hidden">
+                  
+                  <div class="absolute inset-0 h-full w-full -translate-x-full group-hover/btn:animate-sheen rounded-[inherit] bg-gradient-to-r from-transparent via-white/30 to-transparent z-0"></div>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="w-9 h-9 md:w-11 md:h-11 fill-current relative z-10 -mt-1"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.56 5.338-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.561-5.338 11.892-11.893 11.892-1.99 0-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.591 5.468 0 9.913-4.445 9.913-9.913 0-5.468-4.445-9.913-9.913-9.913-5.466 0-9.913 4.447-9.913 9.913 0 2.136.6 3.73 1.594 5.394l-.908 3.323 3.335-.874zm7.951-11.94c.123-.183.334-.73.522-1.24.188-.509.335-.908.441-1.12.106-.211.33-.302.498-.313.117-.008.232.008.337.042.106.035.215.111.314.19.1.079.162.152.203.224.041.071.078.143.102.21.025.066.046.126.06.177.014.051.02.102.016.146-.003.045-.018.117-.063.266-.046.149-.244.757-.591 1.706-.346.949-.696 1.832-.887 2.234l-.089.183c-.09.184-.251.315-.429.352-.178.038-.367-.015-.503-.122-.137-.107-.22-.266-.231-.444-.01-.178.053-.365.176-.523zm-3.321 3.242c.117-.189.3-.312.518-.328.218-.016.425.061.571.219.146.157.208.373.18.591-.027.218-.157.397-.361.503l-.161.082c-.104.053-.217.111-.328.175l-.264.153c-.11.064-.202.128-.276.192l-.123.111c-.083.076-.145.143-.186.2l-.053.071c-.053.071-.088.111-.105.111.018-.142.158-.804.316-1.509.158-.704.302-1.26.432-1.579zm6.632-1.229l.138.169c.1.123.155.281.151.444-.004.162-.064.315-.171.439l-.396.452c-.1.115-.152.261-.151.41.002.149.062.291.168.397l.142.141c.106.106.248.167.398.168.15.002.296-.05.397-.152l.288-.291.138-.139c.106-.106.248-.168.398-.168.15.001.296.06.397.168l.141.141c.106.106.166.248.168.397.001.15-.05.296-.151.397l-.291.288-.352.348c-.106.106-.166.248-.168.397-.001.15.05.296.151.397l.141.141c.106.106.248.168.398.168.15.002.296-.06.397-.168l.139-.141c.106-.106.166-.248.168-.397.001-.15-.05-.296-.151-.397l-.288-.291-.351-.349zm-8.823 4.606l.338.257c-.126.17-.323.277-.542.277-.383 0-.693-.31-.693-.693 0-.106.024-.206.066-.296l-.16-.121-.115.152.091.069c.075.057.126.136.143.226h-.285l.115-.152-.091-.069c-.066-.05-.15-.077-.235-.077-.102 0-.201.037-.282.106l-.115.152.091.069c.066.05.15.077.235.077.102 0 .201-.037.282-.106l.115-.152.091.069zm-2.071-.876l.115-.152-.091-.069c-.066-.05-.15-.077-.235-.077-.102 0-.201.037-.282.106l-.115.152.091.069c.066.05.15.077.235.077.102 0 .201-.037.282-.106l.115-.152-.091-.069c-.066-.05-.15-.077-.235-.077-.102 0-.201.037-.282.106l-.115.152.091.069c.066.05.15.077.235.077.102 0 .201-.037.282-.106l.115-.152.091.069zm6.756 1.152l.138.169c.1.123.155.281.151.444-.004.162-.064.315-.171.439l-.396.452c-.1.115-.152.261-.151.41.002.149.062.291.168.397l.142.141c.106.106.248.167.398.168.15.002.296-.05.397-.152l.288-.291.138-.139c.106-.106.248-.168.398-.168.15.001.296.06.397.168l.141.141c.106.106.166.248.168.397.001.15-.05.296-.151.397l-.291.288-.352.348c-.106.106-.166.248-.168.397-.001.15.05.296.151.397l.141.141c.106.106.248.168.398.168.15.002.296-.06.397-.168l.139-.141c.106-.106.166-.248.168-.397.001-.15-.05-.296-.151-.397l-.288-.291-.351-.349z"/></svg>
+                  
+                  <span class="relative z-10 tracking-tight">Check Surgery Costs</span>
+                </a>
+
+                <a href="#partners" class="flex-1 border-2 border-slate-900 hover:bg-slate-900 hover:text-white font-semibold text-lg md:text-xl py-6 md:py-8 px-8 md:px-14 rounded-2xl md:rounded-3xl text-center transition-all shadow-sm">
+                  See Our Partners →
+                </a>
               </div>
-              <div class="h-12 w-px bg-slate-200"></div>
+            </div>
+            
+            <p class="mt-6 md:mt-8 text-sm md:text-base font-medium text-slate-500 flex items-center gap-2 relative z-10">
+              <span class="text-emerald-500 text-lg">🔒</span> 100% Free & Confidential. Chat instantly to share your reports.
+            </p>
+            <div class="mt-10 md:mt-16 flex flex-wrap items-center gap-6 md:gap-12 text-sm relative z-10">
+              <div>
+                <div class="font-black text-3xl md:text-4xl text-emerald-600">48 hr</div>
+                <div class="text-slate-500 mt-1">Priority Booking</div>
+              </div>
+              <div class="hidden sm:block h-12 w-px bg-slate-200"></div>
               <div>
                 <div class="flex items-center gap-3">
-                  <span class="text-3xl">⭐⭐⭐⭐⭐</span>
+                  <span class="text-2xl md:text-3xl">⭐⭐⭐⭐⭐</span>
                   <div>
-                    <div class="font-bold">4.98/5</div>
+                    <div class="font-bold text-base">4.98/5</div>
                     <div class="text-xs text-slate-500">Verified Patient Reviews</div>
                   </div>
                 </div>
@@ -62,23 +83,23 @@ const whatsappLink = "https://wa.me/919840653616?text=Hi%20CareBridge%2C%20I%20s
             </div>
           </div>
 
-          <div class="lg:col-span-5 relative">
-            <div class="rounded-[3.5rem] overflow-hidden shadow-2xl ring-1 ring-white/60">
+          <div class="lg:col-span-5 relative mt-8 md:mt-0 z-0">
+            <div class="rounded-[2rem] md:rounded-[3.5rem] overflow-hidden shadow-2xl ring-1 ring-white/60 relative z-10">
               <img 
                 src="/VmJrama5RuC2UkdwRtPMgn7DStLjdCvzR2JKGBzr.avif"
                 alt="Manipal Hospitals – Premium Care"
-                class="w-full aspect-[16/10] object-cover"
+                class="w-full aspect-[4/3] md:aspect-[16/10] object-cover"
               />
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             </div>
 
-            <div class="absolute -bottom-6 -left-6 bg-white rounded-3xl shadow-2xl p-6 max-w-[260px]">
-              <div class="flex gap-4">
-                <div class="text-6xl">🏥</div>
+            <div class="absolute -bottom-6 left-4 right-4 sm:right-auto sm:-left-6 bg-white rounded-2xl md:rounded-3xl shadow-2xl p-4 md:p-6 z-20 md:max-w-[260px]">
+              <div class="flex gap-3 md:gap-4 items-center md:items-start">
+                <div class="text-4xl md:text-6xl">🏥</div>
                 <div>
-                  <div class="text-emerald-600 font-bold text-sm tracking-widest">NEXT AVAILABLE</div>
-                  <div class="font-black text-3xl text-slate-900">48 hrs</div>
-                  <div class="text-slate-500 text-sm">for specialist consultation</div>
+                  <div class="text-emerald-600 font-bold text-xs md:text-sm tracking-widest">NEXT AVAILABLE</div>
+                  <div class="font-black text-2xl md:text-3xl text-slate-900">48 hrs</div>
+                  <div class="text-slate-500 text-xs md:text-sm">for specialist consultation</div>
                 </div>
               </div>
             </div>
@@ -86,171 +107,217 @@ const whatsappLink = "https://wa.me/919840653616?text=Hi%20CareBridge%2C%20I%20s
         </div>
       </section>
 
-      <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-16">
-            <div class="text-cyan-600 text-sm font-black tracking-[3px]">YOUR HEALTHCARE CONCIERGE</div>
-            <h2 class="text-5xl font-bold mt-4">Speed. Transparency. Care.</h2>
+      <section class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="text-center mb-12 md:mb-16">
+            <div class="text-cyan-600 text-xs md:text-sm font-black tracking-[3px]">YOUR HEALTHCARE CONCIERGE</div>
+            <h2 class="text-3xl md:text-5xl font-bold mt-3 md:mt-4">Speed. Transparency. Care.</h2>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="group bg-gradient-to-br from-white to-cyan-50 border border-cyan-100 rounded-3xl p-10 hover:-translate-y-3 transition-all">
-              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-5xl mb-8">📋</div>
-              <h3 class="text-2xl font-bold">Instant Expert Review</h3>
-              <p class="mt-4 text-slate-600">Share reports on WhatsApp. Get treatment plans and quotes quickly.</p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="group bg-gradient-to-br from-white to-cyan-50 border border-cyan-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">📋</div>
+              <h3 class="text-xl md:text-2xl font-bold">Instant Expert Review</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">Share reports on WhatsApp. Get treatment plans and exact quotes quickly.</p>
             </div>
-            <div class="group bg-gradient-to-br from-white to-violet-50 border border-violet-100 rounded-3xl p-10 hover:-translate-y-3 transition-all">
-              <div class="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-5xl mb-8">🏆</div>
-              <h3 class="text-2xl font-bold">Elite Hospital Network</h3>
-              <p class="mt-4 text-slate-600">Direct access to Manipal Hospitals and top accredited centres.</p>
+            
+            <div class="group bg-gradient-to-br from-white to-violet-50 border border-violet-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">🏆</div>
+              <h3 class="text-xl md:text-2xl font-bold">Elite Hospital Network</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">Direct priority access to Manipal Hospitals and top accredited centres.</p>
             </div>
-            <div class="group bg-gradient-to-br from-white to-emerald-50 border border-emerald-100 rounded-3xl p-10 hover:-translate-y-3 transition-all">
-              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-5xl mb-8">⏱️</div>
-              <h3 class="text-2xl font-bold">Skip the Line</h3>
-              <p class="mt-4 text-slate-600">No waiting rooms. We arrange priority VIP appointments and direct admissions.</p>
+            
+            <div class="group bg-gradient-to-br from-white to-emerald-50 border border-emerald-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">⏱️</div>
+              <h3 class="text-xl md:text-2xl font-bold">Skip the Line</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">No waiting rooms. We arrange VIP appointments and direct admissions.</p>
             </div>
-            <div class="group bg-gradient-to-br from-white to-rose-50 border border-rose-100 rounded-3xl p-10 hover:-translate-y-3 transition-all">
-              <div class="w-16 h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl flex items-center justify-center text-5xl mb-8">🤖</div>
-              <h3 class="text-2xl font-bold">24/7 Care Team</h3>
-              <p class="mt-4 text-slate-600">AI coordinator backed by real care managers to guide your hospital journey.</p>
+
+            <div class="group bg-gradient-to-br from-white to-amber-50 border border-amber-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">✈️</div>
+              <h3 class="text-xl md:text-2xl font-bold">Travel & Stay Arranged</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">Traveling to Bangalore? We arrange your local cabs, airport/station pickups, and partner hotel stays.</p>
+            </div>
+
+            <div class="group bg-gradient-to-br from-white to-rose-50 border border-rose-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">🤖</div>
+              <h3 class="text-xl md:text-2xl font-bold">24/7 Care Team</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">AI coordinator backed by real human care managers to guide your entire journey.</p>
+            </div>
+
+            <div class="group bg-gradient-to-br from-white to-blue-50 border border-blue-100 rounded-3xl p-8 md:p-10 hover:-translate-y-2 transition-all shadow-sm hover:shadow-md">
+              <div class="w-14 h-14 md:w-16 md:h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-6 md:mb-8 shadow-inner">🤝</div>
+              <h3 class="text-xl md:text-2xl font-bold">Post-Surgery Support</h3>
+              <p class="mt-3 md:mt-4 text-slate-600 text-sm md:text-base">We ensure a smooth discharge process and help schedule remote follow-up consults when you return home.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="partners" class="py-24 bg-slate-900 text-white">
-        <div class="max-w-6xl mx-auto px-6">
-          <div class="bg-gradient-to-br from-zinc-900 to-slate-900 rounded-[3rem] overflow-hidden relative">
-            <div class="absolute -top-32 -right-32 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl"></div>
+      <section id="partners" class="py-16 md:py-24 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="bg-gradient-to-br from-zinc-900 to-slate-900 rounded-[2rem] md:rounded-[3rem] overflow-hidden relative">
+            <div class="absolute -top-32 -right-32 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-cyan-500/10 rounded-full blur-3xl"></div>
 
             <div class="grid lg:grid-cols-2">
-              <div class="p-16 lg:p-20">
-                <div class="uppercase text-emerald-400 font-bold tracking-[3px]">EXCLUSIVE PARTNER</div>
-                <h2 class="text-5xl font-bold mt-6 leading-none">Manipal Hospitals</h2>
-                <p class="mt-8 text-xl text-slate-300">Priority access, exact cost transparency, and seamless end-to-end coordination for our patients.</p>
+              <div class="p-8 sm:p-12 md:p-16 lg:p-20">
+                <div class="uppercase text-emerald-400 font-bold tracking-[2px] md:tracking-[3px] text-xs md:text-sm">EXCLUSIVE PARTNER</div>
+                <h2 class="text-3xl md:text-5xl font-bold mt-4 md:mt-6 leading-tight md:leading-none">Manipal Hospitals</h2>
+                <p class="mt-4 md:mt-8 text-lg md:text-xl text-slate-300">Priority access, exact cost transparency, and seamless end-to-end coordination for our patients.</p>
                 
-                <div class="mt-12 grid grid-cols-2 gap-8 text-sm">
-                  <div class="space-y-4">
-                    <div>✓ Priority slots in 48 hrs</div>
-                    <div>✓ Direct hospital admission</div>
+                <div class="mt-8 md:mt-12 grid sm:grid-cols-2 gap-4 md:gap-8 text-sm">
+                  <div class="space-y-3 md:space-y-4">
+                    <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Priority slots in 48 hrs</div>
+                    <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Direct hospital admission</div>
                   </div>
-                  <div class="space-y-4">
-                    <div>✓ Transparent cost estimates</div>
-                    <div>✓ Dedicated care managers</div>
+                  <div class="space-y-3 md:space-y-4">
+                    <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Transparent cost estimates</div>
+                    <div class="flex items-center gap-2"><span class="text-emerald-400">✓</span> Dedicated care managers</div>
                   </div>
                 </div>
               </div>
 
-              <div class="relative min-h-[520px]">
+              <div class="relative min-h-[300px] md:min-h-[520px]">
                 <img src="/VmJrama5RuC2UkdwRtPMgn7DStLjdCvzR2JKGBzr.avif" class="absolute inset-0 w-full h-full object-cover" alt="Manipal">
-                <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-slate-900/90 to-transparent"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+      <section class="py-16 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16">
             <div>
-              <span class="text-xs font-black tracking-[4px] text-violet-600">WORLD-CLASS SPECIALTIES</span>
-              <h2 class="text-5xl font-bold mt-3">Centers of Excellence</h2>
+              <span class="text-xs font-black tracking-[3px] md:tracking-[4px] text-violet-600">WORLD-CLASS SPECIALTIES</span>
+              <h2 class="text-3xl md:text-5xl font-bold mt-2 md:mt-3">Centers of Excellence</h2>
             </div>
-            <a href={whatsappLink} class="text-sm font-medium flex items-center gap-2 hover:gap-3 transition-all mt-6 md:mt-0">
-              Get an estimate for your condition → <span class="text-xl">💬</span>
+            <div class="text-sm md:text-base font-medium flex items-center gap-2 mt-4 md:mt-0 text-slate-500">
+              Select your specialty to consult <span class="text-lg md:text-xl">👇</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <a href={whatsappLink} class="block bg-white border hover:border-amber-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-amber-500 to-yellow-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">🦴</div>
+              <div class="font-bold text-lg md:text-xl">Orthopedics<br class="md:hidden"/> & Joints</div>
+            </a>
+            
+            <a href={whatsappLink} class="block bg-white border hover:border-rose-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+               <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-rose-500 to-pink-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">🎗️</div>
+               <div class="font-bold text-lg md:text-xl">Oncology<br class="md:hidden"/> & Cancer</div>
+            </a>
+            
+            <a href={whatsappLink} class="block bg-white border hover:border-cyan-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">❤️</div>
+              <div class="font-bold text-lg md:text-xl">Cardiology<br class="md:hidden"/> & CTVS</div>
+            </a>
+            
+            <a href={whatsappLink} class="block bg-white border hover:border-teal-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-teal-500 to-emerald-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">🧠</div>
+              <div class="font-bold text-lg md:text-xl">Neurology<br class="md:hidden"/> & Spine</div>
+            </a>
+
+            <a href={whatsappLink} class="block bg-white border hover:border-purple-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-500 to-indigo-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">🩺</div>
+              <div class="font-bold text-lg md:text-xl">Gastro-<br class="md:hidden"/>enterology</div>
+            </a>
+
+            <a href={whatsappLink} class="block bg-white border hover:border-blue-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">💧</div>
+              <div class="font-bold text-lg md:text-xl">Urology &<br class="md:hidden"/> Nephrology</div>
+            </a>
+
+            <a href={whatsappLink} class="block bg-white border hover:border-orange-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-orange-400 to-red-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">🫁</div>
+              <div class="font-bold text-lg md:text-xl">Organ<br class="md:hidden"/> Transplant</div>
+            </a>
+
+            <a href={whatsappLink} class="block bg-white border hover:border-pink-300 group rounded-2xl md:rounded-3xl p-6 md:p-8 text-center transition-all hover:-translate-y-1 shadow-sm hover:shadow-xl cursor-pointer">
+              <div class="mx-auto w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-pink-400 to-rose-400 rounded-2xl flex items-center justify-center text-3xl md:text-5xl mb-4 md:mb-6">👶</div>
+              <div class="font-bold text-lg md:text-xl">Gynecology<br class="md:hidden"/> & IVF</div>
             </a>
           </div>
+        </div>
+      </section>
 
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div class="bg-white border hover:border-amber-300 group rounded-3xl p-8 text-center transition-all hover:-translate-y-1">
-              <div class="mx-auto w-20 h-20 bg-gradient-to-br from-amber-500 to-yellow-400 rounded-2xl flex items-center justify-center text-5xl mb-6">🦴</div>
-              <div class="font-bold text-xl">Orthopedics & Joints</div>
+      <section id="journey" class="py-16 md:py-28 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="text-center mb-12 md:mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold">Your Seamless Hospital Journey</h2>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 shadow-xl">
+              <div class="font-mono text-5xl md:text-7xl text-cyan-200 font-black">01</div>
+              <div class="mt-4 md:mt-8 font-bold text-xl md:text-2xl">Send Reports</div>
+              <p class="mt-2 md:mt-4 text-slate-600 text-sm md:text-base">WhatsApp your medical files for an instant review.</p>
             </div>
-            <div class="bg-white border hover:border-rose-300 group rounded-3xl p-8 text-center transition-all hover:-translate-y-1">
-               <div class="mx-auto w-20 h-20 bg-gradient-to-br from-rose-500 to-pink-400 rounded-2xl flex items-center justify-center text-5xl mb-6">🎗️</div>
-               <div class="font-bold text-xl">Oncology & Cancer</div>
-             </div>
-            <div class="bg-white border hover:border-cyan-300 group rounded-3xl p-8 text-center transition-all hover:-translate-y-1">
-              <div class="mx-auto w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center text-5xl mb-6">❤️</div>
-              <div class="font-bold text-xl">Cardiology & CTVS</div>
+            <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 shadow-xl">
+              <div class="font-mono text-5xl md:text-7xl text-cyan-200 font-black">02</div>
+              <div class="mt-4 md:mt-8 font-bold text-xl md:text-2xl">Get Estimates</div>
+              <p class="mt-2 md:mt-4 text-slate-600 text-sm md:text-base">Receive exact surgery costs and treatment plans.</p>
             </div>
-            <div class="bg-white border hover:border-teal-300 group rounded-3xl p-8 text-center transition-all hover:-translate-y-1">
-              <div class="mx-auto w-20 h-20 bg-gradient-to-br from-teal-500 to-cyan-400 rounded-2xl flex items-center justify-center text-5xl mb-6">🧠</div>
-              <div class="font-bold text-xl">Neurology & Spine</div>
+            <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 shadow-xl">
+              <div class="font-mono text-5xl md:text-7xl text-cyan-200 font-black">03</div>
+              <div class="mt-4 md:mt-8 font-bold text-xl md:text-2xl">Priority Booking</div>
+              <p class="mt-2 md:mt-4 text-slate-600 text-sm md:text-base">We secure your VIP appointment and manage admissions.</p>
+            </div>
+            <div class="bg-white rounded-2xl md:rounded-3xl p-8 md:p-10 shadow-xl">
+              <div class="font-mono text-5xl md:text-7xl text-cyan-200 font-black">04</div>
+              <div class="mt-4 md:mt-8 font-bold text-xl md:text-2xl">Treatment</div>
+              <p class="mt-2 md:mt-4 text-slate-600 text-sm md:text-base">VIP experience with your personal hospital coordinator.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="journey" class="py-28 bg-gradient-to-b from-slate-50 to-white">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="text-center mb-16">
-            <h2 class="text-5xl font-bold">Your Seamless Hospital Journey</h2>
-          </div>
-          <div class="grid md:grid-cols-4 gap-6">
-            <div class="bg-white rounded-3xl p-10 shadow-xl">
-              <div class="font-mono text-7xl text-cyan-200 font-black">01</div>
-              <div class="mt-8 font-bold text-2xl">Send Reports</div>
-              <p class="mt-4 text-slate-600">WhatsApp your medical files for an instant review.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-10 shadow-xl">
-              <div class="font-mono text-7xl text-cyan-200 font-black">02</div>
-              <div class="mt-8 font-bold text-2xl">Get Estimates</div>
-              <p class="mt-4 text-slate-600">Receive exact surgery costs and treatment plans.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-10 shadow-xl">
-              <div class="font-mono text-7xl text-cyan-200 font-black">03</div>
-              <div class="mt-8 font-bold text-2xl">Priority Booking</div>
-              <p class="mt-4 text-slate-600">We secure your VIP appointment and manage admissions.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-10 shadow-xl">
-              <div class="font-mono text-7xl text-cyan-200 font-black">04</div>
-              <div class="mt-8 font-bold text-2xl">Treatment</div>
-              <p class="mt-4 text-slate-600">VIP experience with your personal hospital coordinator.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="py-28 relative">
-        <div class="max-w-5xl mx-auto bg-gradient-to-br from-zinc-950 via-slate-900 to-black rounded-[3rem] p-16 text-white overflow-hidden">
+      <section class="py-16 md:py-28 relative px-4 sm:px-6">
+        <div class="max-w-5xl mx-auto bg-gradient-to-br from-zinc-950 via-slate-900 to-black rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 text-white overflow-hidden">
           <div class="absolute inset-0 bg-[radial-gradient(#3b82f620_1px,transparent_1px)] [background-size:30px_30px]"></div>
 
-          <div class="grid md:grid-cols-2 gap-16 items-center relative z-10">
+          <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10">
             <div>
-              <div class="flex items-center gap-5">
-                <div class="w-24 h-24 rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-6xl shadow-inner">🤖</div>
+              <div class="flex items-center gap-4 md:gap-5">
+                <div class="w-16 h-16 md:w-24 md:h-24 rounded-2xl md:rounded-3xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-4xl md:text-6xl shadow-inner shrink-0">🤖</div>
                 <div>
-                  <div class="uppercase text-emerald-400 font-bold">24/7 AI + HUMAN</div>
-                  <h2 class="text-5xl font-bold leading-none mt-3">Meet Sarah,<br>Your Concierge</h2>
+                  <div class="uppercase text-emerald-400 font-bold text-xs md:text-sm">24/7 AI + HUMAN</div>
+                  <h2 class="text-3xl md:text-5xl font-bold leading-tight md:leading-none mt-2 md:mt-3">Meet Sarah,<br>Your Concierge</h2>
                 </div>
               </div>
-              <p class="mt-8 text-xl text-slate-300">She reads your reports, gets exact cost estimates, and books priority appointments — always with a human care manager ready.</p>
+              <p class="mt-6 md:mt-8 text-base md:text-xl text-slate-300">She reads your reports, gets exact cost estimates, and books priority appointments — always with a human care manager ready.</p>
 
               <a href={whatsappLink}
-                 class="mt-12 inline-flex items-center gap-4 bg-white hover:bg-emerald-400 hover:text-white text-slate-950 font-bold text-xl px-12 py-7 rounded-3xl transition-all shadow-xl">
-                Chat on WhatsApp <span class="text-3xl">→</span>
+                 class="mt-8 md:mt-12 inline-flex w-full md:w-auto justify-center items-center gap-3 md:gap-4 bg-white hover:bg-emerald-400 hover:text-white text-slate-950 font-bold text-lg md:text-xl px-8 md:px-12 py-5 md:py-7 rounded-2xl md:rounded-3xl transition-all shadow-xl">
+                Chat on WhatsApp <span class="text-2xl md:text-3xl">→</span>
               </a>
             </div>
 
-            <div class="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 text-sm space-y-6">
-              <div class="bg-white/10 p-5 rounded-2xl">Hi Sarah, I need an estimate for knee replacement in Bangalore.</div>
-              <div class="bg-gradient-to-r from-cyan-400/30 to-blue-500/30 p-5 rounded-2xl ml-auto max-w-[85%]">I can help with that! Dr. Shetty at Manipal can see you next week. Shall I share the cost estimate?</div>
+            <div class="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-2xl md:rounded-3xl p-6 md:p-8 text-xs md:text-sm space-y-4 md:space-y-6">
+              <div class="bg-white/10 p-4 md:p-5 rounded-xl md:rounded-2xl w-11/12 md:w-full">Hi Sarah, I need an estimate for knee replacement in Bangalore.</div>
+              <div class="bg-gradient-to-r from-cyan-400/30 to-blue-500/30 p-4 md:p-5 rounded-xl md:rounded-2xl ml-auto w-11/12 md:w-auto md:max-w-[85%]">I can help with that! Dr. Shetty at Manipal can see you next week. Shall I share the cost estimate?</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-32 bg-gradient-to-br from-blue-700 via-violet-700 to-indigo-700 text-white">
-        <div class="max-w-4xl mx-auto text-center px-6">
-          <h2 class="text-6xl font-black leading-none">Ready to skip the waiting list?</h2>
-          <p class="mt-8 text-2xl opacity-90">Get premium care at India's top hospitals. Your turn is now.</p>
+      <section class="py-20 md:py-32 bg-gradient-to-br from-blue-700 via-violet-700 to-indigo-700 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight md:leading-none">Ready to skip the waiting list?</h2>
+          <p class="mt-6 md:mt-8 text-lg md:text-2xl opacity-90">Get premium care at India's top hospitals. Your turn is now.</p>
           
           <a href={whatsappLink}
-             class="mt-14 inline-block bg-white text-slate-950 font-black text-3xl px-20 py-9 rounded-3xl hover:bg-emerald-400 hover:text-white transition-all shadow-2xl">
+             class="mt-10 md:mt-14 inline-block w-full sm:w-auto bg-white text-slate-950 font-black text-xl md:text-3xl px-8 md:px-20 py-6 md:py-9 rounded-2xl md:rounded-3xl hover:bg-emerald-400 hover:text-white transition-all shadow-2xl">
             Get Your Cost Estimate
           </a>
+
+          <p class="mt-6 md:mt-8 text-sm md:text-lg text-blue-200 font-medium flex justify-center items-center gap-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+            </span>
+            Online now. Tap to instantly chat with our Care Team.
+          </p>
         </div>
       </section>
     </div>

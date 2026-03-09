@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
-import ChatWidget from "../components/ChatWidget.astro"; // Import is here
 
 export interface Props {
   title: string;
@@ -76,8 +75,6 @@ const metaDescription =
     <slot />
     <Footer />
     
-    <ChatWidget />
-
     <style is:global>
       /* Improve Page speed */
       /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
