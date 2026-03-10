@@ -5,6 +5,7 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   { href: "/", label: "Home" },
+  { href: "/india", label: "India VIP Care", highlight: true }, // Added the new VIP page here
   { href: "/hair-transplant", label: "Hair Transplant" },
   { href: "/dental", label: "Dental" },
   { href: "/cosmetic", label: "Cosmetic" },
@@ -43,8 +44,19 @@ const menuitems = [
                   <li>
                     <a
                       href={item.href}
-                      class="flex lg:px-3 py-2 items-center text-slate-600 hover:text-blue-600 font-medium transition">
+                      class={`flex lg:px-3 py-2 items-center font-medium transition ${
+                        item.highlight
+                          ? "text-emerald-600 font-bold hover:text-emerald-700" // Special styling for the VIP link
+                          : "text-slate-600 hover:text-blue-600"
+                      }`}
+                    >
                       {item.label}
+                      {/* Add a tiny VIP badge if it's the highlighted item */}
+                      {item.highlight && (
+                        <span class="ml-2 bg-emerald-100 text-emerald-700 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                          VIP
+                        </span>
+                      )}
                     </a>
                   </li>
                 )}
