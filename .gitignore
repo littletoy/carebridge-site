@@ -7,3 +7,4 @@ ngrok.exe
 node_modules/ 
 dist/ 
 .astro/ 
+"serviceAccountKey.json" 
